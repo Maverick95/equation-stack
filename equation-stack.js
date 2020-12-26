@@ -42,9 +42,17 @@ class Stack {
 
     }
 
-    Peek = () => this.last && this.last.value;
+    Peek() {
 
-    Count = () => this.count;
+	return this.last && this.last.value;
+
+    }
+
+    Count() {
+
+        return this.count;
+
+    }
 
 }
 
