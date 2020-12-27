@@ -37,7 +37,7 @@ export default class Stack {
     Empty() {
 
         while(this.last) {
-            this.pop();
+            this.Pop();
         }
 
     }
