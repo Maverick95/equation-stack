@@ -12,6 +12,11 @@
     "url": "https://github.com/Maverick95/equation-stack.git"
   },
   "devDependencies": {
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "babel-jest": "^26.6.3",
+    "@babel/preset-env": "^7.12.11"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }

@@ -46,21 +46,39 @@ export default class EquationStack {
                 break;
 
             case '(':
-                this.combine_on_push = false;
+                if (this.stack_operators.Count()) {
+                    this.combine_on_push = false;
+                }
                 break;
 
             case ')':
                 {
-                    this.stack_numbers.Push(
-                        this.operators[this.stack_operators.Pop()](
+                    if (this.stack_operators.Count()) {
+                        
+                        if (this.stack_numbers.Count() < 2) {
+                            throw 'Invalid character set passed into equation stream';
+                        }
+                        
+                        this.stack_numbers.Push(
+                            this.operators[this.stack_operators.Pop()](
                             this.stack_numbers.Pop(),
                             this.stack_numbers.Pop()));
+                    }
                 }
                 break;
 
             default:
                 {
+                    if (isNaN(parseInt(n))) {
+                        throw 'Invalid character set passed into equation stream';
+                    }
+                    
                     if (this.combine_on_push) {
+
+                        if (!this.stack_operators.Count() || !this.stack_numbers.Count()) {
+                            throw 'Invalid character set passed into equation stream';
+                        }
+
                         n = this.operators[this.stack_operators.Pop()](
                             this.stack_numbers.Pop(), n);
                     }
