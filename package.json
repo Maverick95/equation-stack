@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "equation-stack",
   "version": "1.0.0",
   "description": "Data structure required for Advent of Code 2020 (day 18)",
