@@ -42,6 +42,15 @@ const data_correct_test =
     {
         equation: '((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2',
         result: 13632
+    },
+    // A couple of extras I've added in to highlight the problem of bracket placement.
+    {
+        equation: '(((2 + 4))) + ((2 + (((3 * (1 + 3)) + 2) * 4) + (2 * 3)))',
+        result: 70
+    },
+    {
+        equation: '(((((1 + 2) * 2) + 3) * 2) + 2)',
+        result: 20
     }
 ];
 
