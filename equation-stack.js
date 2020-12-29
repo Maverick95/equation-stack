@@ -7,7 +7,6 @@ export default class EquationStack {
         this.value = 0;
         this.stack_numbers = new Stack();
         this.stack_operators = new Stack();
-        this.combine_on_push = false;
         this.equation = '';
         this.operators = {
             '+': (x, y) => x + y,
@@ -42,28 +41,24 @@ export default class EquationStack {
 
             case '+':
             case 'x':
+            case '(':
                 this.stack_operators.Push(n);
                 break;
-
-            case '(':
-                if (this.stack_operators.Count()) {
-                    this.combine_on_push = false;
-                }
-                break;
-
             case ')':
                 {
-                    if (this.stack_operators.Count()) {
-                        
-                        if (this.stack_numbers.Count() < 2) {
-                            throw 'Invalid character set passed into equation stream';
-                        }
-                        
+                    if (this.stack_operators.Pop() !== '(') {
+                        throw 'Invalid character set passed into equation stream';
+                    }
+
+                    if (this.stack_numbers.Count() >= 2 &&
+                    this.operators[this.stack_operators.Peek()]) {
+
                         this.stack_numbers.Push(
                             this.operators[this.stack_operators.Pop()](
                             this.stack_numbers.Pop(),
                             this.stack_numbers.Pop()));
-                    }
+
+                    }                    
                 }
                 break;
 
@@ -72,19 +67,16 @@ export default class EquationStack {
                     if (isNaN(parseInt(n))) {
                         throw 'Invalid character set passed into equation stream';
                     }
-                    
-                    if (this.combine_on_push) {
 
-                        if (!this.stack_operators.Count() || !this.stack_numbers.Count()) {
-                            throw 'Invalid character set passed into equation stream';
-                        }
-
+                    if (this.stack_numbers.Count() &&
+                    this.operators[this.stack_operators.Peek()]) {
+                        
                         n = this.operators[this.stack_operators.Pop()](
                             this.stack_numbers.Pop(), n);
+                        
                     }
-
+                    
                     this.stack_numbers.Push(n);
-                    this.combine_on_push = true;
                 }
                 break;
 
