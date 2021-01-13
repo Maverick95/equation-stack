@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "equation-stack",
   "version": "1.0.0",
   "description": "Data structure required for Advent of Code 2020 (day 18)",
@@ -13,9 +12,10 @@
     "url": "https://github.com/Maverick95/equation-stack.git"
   },
   "devDependencies": {
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1"
   },
   "scripts": {
-    "test": "node --experimental-vm-modules .\\node_modules\\jest\\bin\\jest.js"
+    "test": "jest"
   }
 }
