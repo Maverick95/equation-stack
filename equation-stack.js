@@ -15,6 +15,15 @@ export default class EquationStack {
 
     }
 
+    Reset() {
+
+        this.value = 0;
+        this.stack_numbers.Empty();
+        this.stack_operators.Empty();
+        this.equation = '';
+        
+    }
+
     Output() {
         
         return this.equation;
