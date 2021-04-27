@@ -80,6 +80,25 @@ beforeEach(() => {
 
 });
 
+describe('EquationStack', () => {
+
+    it('Reset command should empty the stack', () => {
+
+        const data = data_correct_test[0];
+        const data_array = equation_transform(data.equation);
+
+        data_array.forEach((value) => equation_stack_test.Add(value));
+
+        equation_stack_test.Reset();
+
+        expect(equation_stack_test.Output()).toEqual('');
+        expect(equation_stack_test.Valid()).toEqual(false);
+        expect(equation_stack_test.Value()).toEqual(0);
+
+    });
+
+});
+
 describe.each(
     data_correct_test.map(m => [m.equation, m.result]))('Correct equation %s = %i', (eq, r) => {
 
