@@ -6,7 +6,8 @@
     "name": "Nick Emmerson",
     "email": "nickemmerson619@hotmail.com"
   },
-  "main": "equation-stack",
+  "main": "./dist/equation-stack.js",
+  "types": "./dist/equation-stack.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maverick95/equation-stack.git"
