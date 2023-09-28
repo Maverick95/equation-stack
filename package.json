@@ -9,8 +9,7 @@
   "main": "./dist/equation-stack.js",
   "types": "./dist/equation-stack.d.ts",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/Maverick95/equation-stack.git"
+    "type": "npm/npm"
   },
   "devDependencies": {
     "ts-jest": "^29.1.1",
