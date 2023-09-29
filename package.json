@@ -10,7 +10,7 @@
   "files": [
     "dist/**",
     "src/equation-stack.ts",
-    "src/stack-ts"
+    "src/stack.ts"
   ],
   "types": "./dist/equation-stack.d.ts",
   "repository": {
