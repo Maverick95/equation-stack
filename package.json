@@ -7,6 +7,11 @@
     "email": "nickemmerson619@hotmail.com"
   },
   "main": "./dist/equation-stack.js",
+  "files": [
+    "dist/**",
+    "src/equation-stack.ts",
+    "src/stack-ts"
+  ],
   "types": "./dist/equation-stack.d.ts",
   "repository": {
     "type": "npm/npm"
